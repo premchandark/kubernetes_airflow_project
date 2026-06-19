@@ -32,7 +32,7 @@ def preview_data(**kwargs):
     #compute total sales
     df['Total'] = df['Price'] * df['Quantity']
 
-    df = df.groupby(by: 'Category', as_index=False).agg({'Quantity': 'sum', 'Total': 'sum'})
+    df = df.groupby('Category', as_index=False).agg({'Quantity': 'sum', 'Total': 'sum'})
 
     df = df.sort_values(by='Total', ascending=False)
 
