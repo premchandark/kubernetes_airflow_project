@@ -5,6 +5,9 @@ import requests
 import pandas as pd
 
 def get_data(**kwargs):
+    import requests
+    import pandas as pd
+    
     url = 'https://github.com/premchandark/kubernetes_airflow_project/raw/refs/heads/main/new-output.csv'
     response = requests.get(url)
 
