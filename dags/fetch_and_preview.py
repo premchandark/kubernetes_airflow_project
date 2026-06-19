@@ -19,12 +19,15 @@ def get_data(**kwargs):
         raise Exception(f"Failed to get data, HTTP Status code: {response.status_code}")
 
 def preview_data(**kwargs):
+    import pandas as pd
+    import json
+
     output_data = kwargs['ti'].xcom_pull(key='data', task_ids='get_data')
     print(output_data)
     if output_data:
         output_data = json.loads(output_data)
     else:
-        raise Exception("No data received from XCom")
+        raise ValueError("No data received from XCom")
 
     
     #create a dataframe from the json data
@@ -37,7 +40,7 @@ def preview_data(**kwargs):
 
     df = df.sort_values(by='Total', ascending=False)
 
-    print(df[['Category', 'Total']]).head(20)
+    print(df[['Category', 'Total']].head(20))
 
 
 
