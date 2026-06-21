@@ -1,0 +1,18 @@
+fernetKey: a3FCNkJnaDFNQWlpa1poeHNyTmZDS3RGTjYzbTZtSEE=
+webserverSecretKey: a3FCNkJnaDFNQWlpa1poeHNyTmZDS3RGTjYzbTZtSEE=
+executor: "KubernetesExecutor"
+
+dags:
+  gitSync:
+    enabled: true
+    repo: https://github.com/premchandark/kubernetes_airflow_project.git
+    branch: main
+    rev: HEAD
+    depth: 1
+    maxFailures: 0
+    subPath: "dags"
+    
+
+config:
+  kubernetes_executor:
+    delete_worker_pods: false
